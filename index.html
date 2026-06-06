@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Finance | CPA-Quality Finance Operations. Globally Delivered.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1E2761;--navy-dark:#141a47;--navy-light:#263380;
+  --gold:#C9A84C;--gold-light:#e0be78;
+  --bg:#F4F6FC;--white:#ffffff;--gray:#6b7280;--gray-light:#e5e7eb;--text:#1a1a2e;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px}
+
+/* PAGE SYSTEM */
+.page{display:none;min-height:100vh;animation:fadeIn .45s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(30,39,97,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.18);transition:all .3s}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-brand{font-size:1.25rem;font-weight:800;color:var(--white);letter-spacing:-.02em;cursor:pointer;text-decoration:none;flex-shrink:0}
+.nav-brand span{color:var(--gold)}
+
+/* desktop links */
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.82);font-size:.875rem;font-weight:500;text-decoration:none;transition:color .2s;cursor:pointer;letter-spacing:.01em;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active-link{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:.45rem 1.1rem;border-radius:4px;font-weight:700!important;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}
+
+/* hamburger */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:6px;background:none;border:none;flex-shrink:0}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.is-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile menu */
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--navy-dark);z-index:999;padding:1.25rem 1.5rem 1.5rem;flex-direction:column;gap:0;border-bottom:2px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,.88);font-size:.95rem;font-weight:500;text-decoration:none;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;display:block;transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu a.mob-cta{border:none;background:var(--gold);color:var(--navy)!important;padding:.75rem 1.25rem;border-radius:4px;text-align:center;font-weight:700;margin-top:.75rem}
+.mobile-menu a.mob-cta:hover{background:var(--gold-light)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 55%,#2a3a8f 100%);display:flex;align-items:center;padding-top:70px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;right:-200px;top:50%;transform:translateY(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1280px;margin:0 auto;padding:5rem 2rem 4rem;position:relative;z-index:1}
+.hero-tag{display:inline-block;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);color:var(--gold);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1rem;border-radius:100px;margin-bottom:1.75rem}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-.03em;max-width:750px;margin-bottom:1.5rem}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:clamp(.95rem,2vw,1.2rem);color:rgba(255,255,255,.72);max-width:560px;margin-bottom:2.5rem;font-weight:400;line-height:1.65}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem}
+.btn-primary{background:var(--gold);color:var(--navy);padding:.875rem 2rem;border-radius:4px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;transition:all .2s;letter-spacing:.01em;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-outline{background:transparent;color:var(--white);padding:.875rem 2rem;border-radius:4px;font-weight:600;font-size:.9rem;border:1.5px solid rgba(255,255,255,.35);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+.trust-bar{border-top:1px solid rgba(255,255,255,.12);padding-top:2.5rem}
+.trust-label{color:rgba(255,255,255,.5);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.25rem}
+.logo-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.logo-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.5rem 1.1rem;color:rgba(255,255,255,.55);font-size:.75rem;font-weight:600;letter-spacing:.04em}
+
+/* ── METRICS BAR ── */
+.metrics-bar{background:var(--navy-dark);padding:3rem 2rem;border-bottom:2px solid var(--gold)}
+.metrics-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.metric-num{font-size:clamp(1.75rem,4vw,3rem);font-weight:800;color:var(--gold);letter-spacing:-.03em;line-height:1}
+.metric-label{color:rgba(255,255,255,.65);font-size:.8rem;font-weight:500;margin-top:.5rem;line-height:1.4;letter-spacing:.02em}
+
+/* ── SECTIONS ── */
+.section{padding:5rem 2rem}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-tag{display:inline-block;color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+.section-title{font-size:clamp(1.5rem,3.5vw,2.6rem);font-weight:800;color:var(--navy);line-height:1.2;letter-spacing:-.025em;margin-bottom:1.25rem}
+.section-sub{color:var(--gray);font-size:1rem;line-height:1.7;max-width:620px;margin-bottom:3rem}
+.section-link{color:var(--navy);font-weight:700;font-size:.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:gap .2s;cursor:pointer}
+.section-link:hover{gap:.85rem;color:var(--gold)}
+
+/* PROBLEM GRID */
+.problem-section{background:var(--white)}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.problem-card{background:var(--bg);border:1px solid var(--gray-light);border-radius:8px;padding:2rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.problem-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(30,39,97,.1)}
+.problem-card:hover::before{transform:scaleX(1)}
+.problem-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.875rem;line-height:1.35}
+.problem-card p{font-size:.875rem;color:var(--gray);line-height:1.7}
+
+/* ENTERPRISE */
+.enterprise-section{background:var(--navy);padding:5rem 2rem}
+.enterprise-section .section-title{color:var(--white)}
+.enterprise-section .section-sub{color:rgba(255,255,255,.65)}
+.ent-copy{color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.75;max-width:700px;margin-bottom:1.25rem}
+
+/* TILES */
+.tiles-section{background:var(--bg)}
+.tiles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.tile{background:var(--white);border:1px solid var(--gray-light);border-radius:8px;padding:2rem;transition:all .25s}
+.tile:hover{box-shadow:0 12px 36px rgba(30,39,97,.1);transform:translateY(-3px)}
+.tile-num{font-size:.7rem;font-weight:800;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.875rem}
+.tile h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.75rem;line-height:1.3}
+.tile p{font-size:.875rem;color:var(--gray);line-height:1.7}
+
+/* COMPARISON */
+.comparison-section{background:var(--white)}
+.comp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.comp-table{width:100%;min-width:560px;border-collapse:collapse;margin-top:2.5rem}
+.comp-table th{background:var(--navy);color:var(--white);padding:1.1rem 1.5rem;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-align:left}
+.comp-table th:first-child{border-radius:8px 0 0 0}
+.comp-table th:last-child{border-radius:0 8px 0 0;color:var(--gold)}
+.comp-table td{padding:1.1rem 1.5rem;font-size:.875rem;border-bottom:1px solid var(--gray-light);line-height:1.55;vertical-align:top}
+.comp-table tr:nth-child(even) td{background:#f9fafb}
+.comp-table td:last-child{color:var(--navy);font-weight:600}
+.comp-table td:first-child{color:var(--gray)}
+
+/* CONVERSION GRID */
+.conversion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.conv-card{background:var(--white);border:1px solid var(--gray-light);border-radius:8px;padding:1.75rem;cursor:pointer;transition:all .25s}
+.conv-card:hover{border-color:var(--gold);box-shadow:0 8px 28px rgba(30,39,97,.1);transform:translateY(-2px)}
+.conv-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.625rem}
+.conv-card p{font-size:.82rem;color:var(--gray);line-height:1.65;margin-bottom:1rem}
+.conv-card .arrow-link{font-size:.8rem;font-weight:700;color:var(--gold)}
+
+/* PROCESS */
+.process-section{background:var(--navy);padding:5rem 2rem}
+.process-section .section-title{color:var(--white)}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;position:relative}
+.process-grid::before{content:'';position:absolute;top:2rem;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4}
+.process-step{text-align:center}
+.step-num{width:3.5rem;height:3.5rem;background:rgba(201,168,76,.15);border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1rem;font-weight:800;color:var(--gold)}
+.process-step h3{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.75rem}
+.process-step p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.65}
+
+/* WHO WE SERVE 2x2 */
+.serve-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.serve-card{background:var(--white);border:1px solid var(--gray-light);border-radius:10px;padding:2.5rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.serve-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--navy),var(--navy-light));opacity:0;transition:opacity .3s}
+.serve-card:hover::after{opacity:.96}
+.serve-card:hover .sc-title,.serve-card:hover .sc-copy{color:var(--white);position:relative;z-index:1}
+.serve-card:hover .sc-link{color:var(--gold);position:relative;z-index:1}
+.serve-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(30,39,97,.2)}
+.sc-icon{width:2.75rem;height:2.75rem;background:rgba(30,39,97,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;transition:background .3s}
+.serve-card:hover .sc-icon{background:rgba(201,168,76,.2);position:relative;z-index:1}
+.sc-icon svg{width:1.25rem;height:1.25rem;fill:none;stroke:var(--navy);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.serve-card:hover .sc-icon svg{stroke:var(--gold)}
+.sc-num{font-size:.7rem;font-weight:800;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;transition:color .3s;position:relative;z-index:1}
+.serve-card:hover .sc-num{color:rgba(201,168,76,.8)}
+.sc-title{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.75rem;transition:color .3s;line-height:1.3}
+.sc-copy{font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:1.25rem;transition:color .3s}
+.sc-link{font-size:.8rem;font-weight:700;color:var(--navy);text-decoration:none;transition:color .3s}
+
+/* CASE STUDY */
+.case-section{background:var(--white)}
+.case-header{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-radius:10px;padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.case-label{color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+.case-header h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--white);margin-bottom:.75rem;line-height:1.2}
+.case-header p{color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.65;max-width:650px}
+.case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem}
+.case-metric{background:var(--navy);border-radius:8px;padding:1.75rem;text-align:center}
+.case-metric .num{font-size:2rem;font-weight:800;color:var(--gold);line-height:1;margin-bottom:.5rem}
+.case-metric .lbl{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.4;font-weight:500}
+.challenge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:2rem}
+.challenge-block,.intervention-block{background:var(--bg);border-radius:8px;padding:2rem;border:1px solid var(--gray-light)}
+.block-title{font-size:.8rem;font-weight:700;color:var(--navy);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:2px solid var(--gold)}
+.block-list{list-style:none;padding:0}
+.block-list li{font-size:.875rem;color:var(--gray);padding:.5rem 0 .5rem 1rem;border-bottom:1px solid var(--gray-light);line-height:1.55;position:relative}
+.block-list li::before{content:'›';position:absolute;left:0;color:var(--gold);font-weight:700}
+.block-list li:last-child{border:none}
+.tbc-box{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.04));border:1.5px dashed var(--gold);border-radius:8px;padding:2rem;text-align:center}
+.tbc-box .tbc-warn{font-size:.7rem;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+.tbc-box p{color:var(--gray);font-size:.875rem;line-height:1.6}
+.impact-block{background:var(--bg);border-radius:8px;padding:2rem;border-left:4px solid var(--gold);margin-bottom:1.5rem}
+.impact-block p{font-size:.9rem;color:var(--gray);line-height:1.75}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:start;margin-bottom:3rem}
+.about-copy p{font-size:.95rem;color:var(--gray);line-height:1.8;margin-bottom:1.25rem;padding-left:1.25rem;border-left:3px solid var(--gold)}
+.geo-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.geo-table{width:100%;min-width:540px;border-collapse:collapse;margin-top:2.5rem;margin-bottom:3rem}
+.geo-table th{background:var(--navy);color:var(--white);padding:1rem 1.5rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:left}
+.geo-table th:first-child{border-radius:8px 0 0 0}
+.geo-table th:last-child{border-radius:0 8px 0 0}
+.geo-table td{padding:1rem 1.5rem;font-size:.85rem;border-bottom:1px solid var(--gray-light);vertical-align:top;line-height:1.55}
+.geo-table tr:last-child td{border:none}
+.tbc-badge{background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);font-size:.65rem;font-weight:700;padding:.2rem .5rem;border-radius:3px;letter-spacing:.06em;display:inline-block;margin-left:.4rem}
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:3rem}
+.value-card{background:var(--white);border:1px solid var(--gray-light);border-radius:8px;padding:1.5rem;transition:all .25s}
+.value-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(30,39,97,.08)}
+.value-num{font-size:.65rem;font-weight:800;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.value-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.value-card p{font-size:.82rem;color:var(--gray);line-height:1.65}
+
+/* FORM */
+.form-section{background:var(--navy);padding:5rem 2rem}
+.form-section .section-title{color:var(--white)}
+.form-section .section-sub{color:rgba(255,255,255,.65)}
+.contact-form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:2.5rem;max-width:680px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.25rem}
+.form-group label{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.04em}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:5px;padding:.75rem 1rem;color:var(--white);font-size:.875rem;font-family:'Inter',sans-serif;transition:border .2s,background .2s;outline:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.3)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);background:rgba(255,255,255,.1)}
+.form-group input.error,.form-group textarea.error{border-color:#ef4444}
+.form-group .err-msg{color:#fc8181;font-size:.75rem;display:none}
+.form-group.has-error .err-msg{display:block}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-group select option{background:var(--navy);color:var(--white)}
+.submit-btn{background:var(--gold);color:var(--navy);padding:.9rem 2.25rem;border:none;border-radius:5px;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .2s;width:100%;letter-spacing:.02em;margin-top:.5rem}
+.submit-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.form-success{display:none;background:rgba(201,168,76,.12);border:1.5px solid var(--gold);border-radius:8px;padding:2rem;text-align:center}
+.form-success h3{color:var(--gold);font-size:1.1rem;font-weight:700;margin-bottom:.75rem}
+.form-success p{color:rgba(255,255,255,.75);font-size:.875rem;line-height:1.65}
+.dev-warning{background:rgba(201,168,76,.08);border:1.5px dashed var(--gold);border-radius:6px;padding:1rem 1.25rem;margin-bottom:1.5rem}
+.dev-warning p{font-size:.78rem;color:var(--gold);line-height:1.55}
+.dev-warning strong{font-weight:700}
+
+/* WHAT WE DO */
+.wwd-hero{background:linear-gradient(135deg,var(--navy-dark),var(--navy));padding:8rem 2rem 5rem;text-align:center}
+.wwd-hero h1{font-size:clamp(1.8rem,5vw,3.5rem);font-weight:800;color:var(--white);letter-spacing:-.03em;margin-bottom:1rem}
+.wwd-hero p{color:rgba(255,255,255,.7);font-size:1rem;max-width:600px;margin:0 auto}
+.module-section{padding:5rem 2rem}
+.module-section:nth-child(even){background:var(--white)}
+.module-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+.module-sidebar{position:sticky;top:90px}
+.module-num{font-size:5rem;font-weight:900;color:rgba(30,39,97,.07);line-height:1;margin-bottom:.5rem;letter-spacing:-.05em}
+.module-title{font-size:1.3rem;font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:1rem}
+.module-tag{display:inline-block;background:rgba(201,168,76,.1);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.3rem .75rem;border-radius:100px;text-transform:uppercase}
+.module-body p{font-size:.9rem;color:var(--gray);line-height:1.8;margin-bottom:1.5rem}
+.module-list{list-style:none;padding:0;margin-top:1.25rem}
+.module-list li{font-size:.875rem;color:var(--gray);padding:.6rem 0 .6rem 1.25rem;border-bottom:1px solid var(--gray-light);position:relative;line-height:1.55}
+.module-list li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:var(--gold);border-radius:50%}
+.module-list li:last-child{border:none}
+.tier-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tier-table{width:100%;min-width:540px;border-collapse:collapse;margin-top:2.5rem;margin-bottom:2rem}
+.tier-table th{background:var(--navy);color:var(--white);padding:1rem 1.5rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:left}
+.tier-table td{padding:1.1rem 1.5rem;font-size:.875rem;border-bottom:1px solid var(--gray-light);vertical-align:top;line-height:1.55}
+.tier-table tr:nth-child(even) td{background:#f9fafb}
+.tier-table td:first-child{font-weight:700;color:var(--navy);white-space:nowrap}
+.tier-table td:nth-child(2){font-weight:600;color:var(--gray)}
+.tier-quote{background:var(--navy);border-radius:8px;padding:2rem;margin-top:2rem}
+.tier-quote p{color:rgba(255,255,255,.8);font-size:.95rem;line-height:1.75;font-style:italic}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.25rem;margin-top:2rem}
+.tech-card{background:var(--white);border:1px solid var(--gray-light);border-radius:8px;padding:1.5rem;transition:all .25s}
+.tech-card:hover{border-color:var(--navy);transform:translateY(-2px)}
+.tech-name{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.tech-desc{font-size:.8rem;color:var(--gray);line-height:1.6}
+
+/* INDUSTRY PAGES */
+.ind-hero{background:linear-gradient(135deg,var(--navy-dark),var(--navy));padding:8rem 2rem 5rem;position:relative;overflow:hidden}
+.ind-hero::after{content:'';position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 65%);pointer-events:none}
+.ind-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
+.ind-hero h1{font-size:clamp(1.8rem,5vw,3.5rem);font-weight:800;color:var(--white);max-width:750px;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.25rem}
+.ind-hero p{color:rgba(255,255,255,.72);font-size:1rem;max-width:600px;line-height:1.7;margin-bottom:2rem}
+.scale-compare{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;margin-bottom:3rem}
+.scale-card{background:var(--white);border-radius:8px;padding:2rem;border-top:4px solid var(--navy)}
+.scale-card.gold-top{border-top-color:var(--gold)}
+.scale-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--gray-light)}
+.scale-card p{font-size:.875rem;color:var(--gray);line-height:1.7}
+.good-looks{background:var(--navy);border-radius:8px;padding:2.5rem;margin-bottom:2rem}
+.good-looks h3{color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.25rem}
+.good-looks ul{list-style:none;padding:0}
+.good-looks ul li{color:rgba(255,255,255,.75);font-size:.875rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.08);padding-left:1.25rem;position:relative}
+.good-looks ul li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+.good-looks ul li:last-child{border:none}
+.phase-block{background:var(--bg);border:1px solid var(--gray-light);border-radius:8px;padding:2rem;margin-top:2rem}
+.phase-block h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+.phase-block p{font-size:.875rem;color:var(--gray);line-height:1.75;font-style:italic}
+.pbi-placeholder{background:linear-gradient(135deg,#0f1733,#1a2460);border:1.5px dashed rgba(201,168,76,.4);border-radius:8px;padding:3rem;text-align:center;margin:2rem 0}
+.pbi-placeholder .pbi-icon{font-size:2.5rem;margin-bottom:1rem;opacity:.5}
+.pbi-placeholder h4{color:var(--gold);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.pbi-placeholder p{color:rgba(255,255,255,.45);font-size:.8rem}
+.pbi-caption{color:rgba(255,255,255,.5);font-size:.75rem;font-style:italic;margin-top:.75rem}
+.draft-notice{background:rgba(201,168,76,.06);border:1.5px dashed var(--gold);border-radius:8px;padding:1.5rem;text-align:center;margin-top:3rem}
+.draft-notice h3{color:var(--gold);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.draft-notice p{color:var(--gray);font-size:.82rem;line-height:1.6}
+
+/* FOOTER */
+footer{background:var(--navy-dark);color:rgba(255,255,255,.6);padding:3rem 2rem}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:2rem;margin-bottom:2rem}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);flex-shrink:0}
+.footer-brand span{color:var(--gold)}
+.footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-nav a{color:rgba(255,255,255,.55);font-size:.82rem;text-decoration:none;cursor:pointer;transition:color .2s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-contact{font-size:.8rem;line-height:1.7;text-align:right}
+.footer-contact a{color:var(--gold);text-decoration:none}
+.footer-bottom{max-width:1280px;margin:0 auto;font-size:.75rem;color:rgba(255,255,255,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .problem-grid{grid-template-columns:repeat(2,1fr)}
+  .tiles-grid{grid-template-columns:1fr}
+  .conversion-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr}
+  .module-inner{grid-template-columns:1fr;gap:2rem}
+  .module-sidebar{position:static}
+  .challenge-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .hero-btns .btn-primary,.hero-btns .btn-outline{width:100%;text-align:center}
+  .metrics-inner{grid-template-columns:1fr}
+  .problem-grid{grid-template-columns:1fr}
+  .tiles-grid{grid-template-columns:1fr}
+  .serve-grid{grid-template-columns:1fr}
+  .conversion-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr;gap:2rem}
+  .process-grid::before{display:none}
+  .case-metrics{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .scale-compare{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .footer-contact{text-align:left}
+  .footer-bottom{flex-direction:column}
+  .contact-form{padding:1.5rem}
+  .case-header{padding:2rem 1.5rem}
+  .wwd-hero{padding:7rem 1.5rem 4rem}
+  .ind-hero{padding:7rem 1.5rem 4rem}
+}
+@media(max-width:480px){
+  .nav-inner{padding:0 1.25rem}
+  .hero-inner{padding:4rem 1.25rem 3rem}
+  .logo-row{gap:.75rem}
+  .logo-pill{font-size:.7rem;padding:.4rem .85rem}
+  .section{padding:3.5rem 1.25rem}
+}
+@media(min-width:1400px){
+  .hero h1{font-size:5rem}
+  .section-title{font-size:3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" onclick="showPage('home')">Meridian <span>Finance</span></a>
+    <ul class="nav-links">
+      <li><a onclick="showPage('what-we-do')">What We Do</a></li>
+      <li><a onclick="showPage('who-we-serve')">Who We Serve</a></li>
+      <li><a onclick="showPage('results')">Results</a></li>
+      <li><a onclick="showPage('about')">About</a></li>
+      <li><a onclick="showPage('about');setTimeout(()=>scrollToForm(),200)" class="nav-cta">Schedule a Call</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a onclick="showPage('what-we-do');closeMobile()">What We Do</a>
+  <a onclick="showPage('who-we-serve');closeMobile()">Who We Serve</a>
+  <a onclick="showPage('results');closeMobile()">Results</a>
+  <a onclick="showPage('about');closeMobile()">About</a>
+  <a class="mob-cta" onclick="showPage('about');closeMobile();setTimeout(()=>scrollToForm(),200)">Schedule a Call</a>
+</div>
+
+<!-- ═══ PAGE: HOME ═══ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">CPA-Quality Finance Operations. Globally Delivered.</div>
+      <h1>Finance and accounting that <em>just works.</em></h1>
+      <p class="hero-sub">CPA-equivalent expertise. Globally delivered. Built around how your business actually runs.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('services-section').scrollIntoView({behavior:'smooth'})">See How We Work</button>
+        <button class="btn-outline" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+      </div>
+      <div class="trust-bar">
+        <div class="trust-label">Trusted by operators across the U.S.</div>
+        <div class="logo-row">
+          <div class="logo-pill">⚠ The Learning Experience [Logo TBC]</div>
+          <div class="logo-pill">⚠ Hyper Wellness [Logo TBC]</div>
+          <div class="logo-pill">⚠ Urban Air Adventure Parks [Logo TBC]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="metrics-bar">
+    <div class="metrics-inner">
+      <div class="reveal">
+        <div class="metric-num" data-target="45" data-suffix="+">0+</div>
+        <div class="metric-label">U.S. Locations Actively Supported</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="metric-num">7–8%</div>
+        <div class="metric-label">Total Revenue Recovered Weekly</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="metric-num">CPA</div>
+        <div class="metric-label">Equivalent Talent at Offshore Cost Structures</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section problem-section">
+    <div class="section-inner">
+      <span class="section-tag reveal">The Challenge</span>
+      <h2 class="section-title reveal">Running a multi-location business is hard enough. Your finances shouldn't make it harder.</h2>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <h3>You're paying for quality you're not getting</h3>
+          <p>India-based outsourcing works — but only when the right people are on the right work. Too often, businesses pay CPA rates for bookkeeping talent. That's not a cost saving. That's a problem.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-1">
+          <h3>Your team is managing the back-office, not the business</h3>
+          <p>Billing, reconciliations, vendor payments, reporting — these tasks consume time that should be going toward growth. If your finance function is running you, something is wrong.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-2">
+          <h3>You can't see what's actually happening across your locations</h3>
+          <p>If your financial picture depends on one person or a stack of spreadsheets, you don't have visibility. You have risk. Real operators need real-time answers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="enterprise-section">
+    <div class="section-inner">
+      <span class="section-tag reveal" style="color:var(--gold)">The Solution</span>
+      <h2 class="section-title reveal">Your extended finance team. Without the overhead.</h2>
+      <p class="ent-copy reveal">Meridian provides outsourced finance and accounting operations for U.S. businesses — delivered by a partner-led team with backgrounds from Ernst & Young and KPMG, at a fraction of the cost of building it in-house.</p>
+      <p class="ent-copy reveal">We don't just close your books. We build the systems, reports, and controls that make your finance function run as a business asset — not a back-office problem.</p>
+    </div>
+  </section>
+
+  <section class="section tiles-section" id="services-section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Capabilities</span>
+      <h2 class="section-title reveal">Four things we take off your plate.</h2>
+      <div class="tiles-grid">
+        <div class="tile reveal">
+          <div class="tile-num">01 — Revenue & Billing Operations</div>
+          <h3>Revenue & Billing Operations</h3>
+          <p>We manage your entire billing cycle — pulling payments, tracking agency reconciliations, flagging missed charges, and recovering revenue that would otherwise go unnoticed. Not just accounting. Execution.</p>
+        </div>
+        <div class="tile reveal reveal-delay-1">
+          <div class="tile-num">02 — Expense & Vendor Controls</div>
+          <h3>Expense & Vendor Controls</h3>
+          <p>Invoice intake, duplicate checks, due-date tracking, and payment validation across all your locations. Your vendors get paid accurately. Your books stay clean.</p>
+        </div>
+        <div class="tile reveal">
+          <div class="tile-num">03 — Financial Reporting & Dashboards</div>
+          <h3>Financial Reporting & Dashboards</h3>
+          <p>Monthly financials, executive summaries, and Power BI dashboards that show EBITDA by location, manager performance, and profitability trends — without asking your team to build it.</p>
+        </div>
+        <div class="tile reveal reveal-delay-1">
+          <div class="tile-num">04 — Corporate Finance Support</div>
+          <h3>Corporate Finance Support</h3>
+          <p>Book closures, acquisition accounting, finance controller support, and management reporting — right-skilled professionals on right-skilled work.</p>
+        </div>
+      </div>
+      <div style="margin-top:2rem;text-align:center">
+        <a class="section-link reveal" onclick="showPage('what-we-do')">→ See Full Service Details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section comparison-section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Differentiation</span>
+      <h2 class="section-title reveal">Not cheap. Competitive. There's a difference.</h2>
+      <div class="comp-wrap">
+        <table class="comp-table reveal">
+          <thead>
+            <tr>
+              <th>What you usually get from offshore providers</th>
+              <th>What Meridian delivers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Generalist teams assigned to specialised work</td><td>CPA-equivalent professionals matched to the work</td></tr>
+            <tr><td>Billing at senior rates, junior delivery structures</td><td>Transparent pricing — you know exactly what you're getting</td></tr>
+            <tr><td>No U.S. presence — you're managing a difficult time zone</td><td>U.S.-based relationship management, India execution depth</td></tr>
+            <tr><td>Reports that show numbers but don't explain the business drivers</td><td>Operational reports built around how your business actually runs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tiles-section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Verticals</span>
+      <h2 class="section-title reveal">We've built this for businesses like yours.</h2>
+      <div class="conversion-grid">
+        <div class="conv-card reveal" onclick="showPage('franchise')">
+          <h3>Multi-Location Franchise Operators</h3>
+          <p>Billing controls, agency reconciliation, revenue recovery, and location-level profitability reporting. We know this business. We've run it for 45+ locations.</p>
+          <span class="arrow-link">→ Learn More</span>
+        </div>
+        <div class="conv-card reveal reveal-delay-1" onclick="showPage('property')">
+          <h3>Property Management Companies</h3>
+          <p>Corporate finance support, acquisition controllers, and property-level EBITDA visibility. NetSuite-native delivery — no disruption, no re-platforming.</p>
+          <span class="arrow-link">→ Learn More</span>
+        </div>
+        <div class="conv-card reveal reveal-delay-2" onclick="showPage('smallbiz')">
+          <h3>Growth-Stage & PE-Backed Companies</h3>
+          <p>Outsourced finance function, virtual CFO support, and governance frameworks — the infrastructure to scale without building an internal team.</p>
+          <span class="arrow-link">→ Learn More</span>
+        </div>
+      </div>
+      <div style="margin-top:2rem;text-align:center">
+        <a class="section-link reveal" onclick="showPage('who-we-serve')">→ Learn More About Who We Serve</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="section-inner">
+      <span class="section-tag reveal" style="color:var(--gold)">How It Works</span>
+      <h2 class="section-title reveal" style="color:var(--white)">Simple to start. Built to scale.</h2>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="step-num">1</div>
+          <h3>Discovery Call</h3>
+          <p>We spend 20 minutes understanding your business — your systems, your team, your pain points. No pitch deck. Just a conversation.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">2</div>
+          <h3>Scoped Engagement</h3>
+          <p>We design the right scope for where you are — starting narrow, building trust, then expanding as you see results.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">3</div>
+          <h3>Delivery That Runs</h3>
+          <p>Your team gets reports, dashboards, and controls on a defined cadence. No chasing. No explaining twice. It just works.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem">
+        <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">→ Schedule a Call</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav">
+        <a onclick="showPage('what-we-do')">What We Do</a>
+        <a onclick="showPage('who-we-serve')">Who We Serve</a>
+        <a onclick="showPage('results')">Results</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Contact</a>
+      </nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div><div>+1 [U.S. Number — TBC ⚠]</div></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Finance. All rights reserved.</span>
+      <span>CPA-Quality Finance Operations. Globally Delivered.</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: WHAT WE DO ═══ -->
+<div id="page-what-we-do" class="page">
+  <div class="wwd-hero">
+    <h1 class="reveal">What We Do</h1>
+    <p class="reveal">Not just accounting. Finance and operations — running as a system.</p>
+  </div>
+
+  <section class="section" style="background:var(--white)">
+    <div class="section-inner" style="max-width:800px">
+      <p class="reveal" style="font-size:1.1rem;color:var(--navy);font-weight:600;line-height:1.7;margin-bottom:1.25rem">"Most finance outsourcing companies give you accountants. We give you a finance function."</p>
+      <p class="reveal" style="font-size:.95rem;color:var(--gray);line-height:1.8">"That means billing execution, agency filing, vendor controls, management reporting, and the dashboards your leadership actually needs — handled end-to-end by our team, delivered on a defined cadence, and built around how your specific business works."</p>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="module-inner section-inner">
+      <div class="module-sidebar reveal">
+        <div class="module-num">01</div>
+        <div class="module-tag">Service Module</div>
+        <div class="module-title">Revenue & Billing Operations</div>
+      </div>
+      <div class="module-body reveal">
+        <p>We manage your entire billing cycle from end to end. That includes pulling payments on the right cadence, tracking all private-pay and agency billing, identifying missed or underbilled charges, and reconciling what was billed against what was actually received.</p>
+        <p>For multi-location operators, we produce weekly recovery reports showing exactly what revenue was identified and collected that would otherwise have gone unnoticed.</p>
+        <strong style="font-size:.85rem;color:var(--navy);font-weight:700;display:block;margin-bottom:.75rem">What we explicitly handle:</strong>
+        <ul class="module-list">
+          <li>Private-pay billing cycles (weekly, semi-monthly, monthly)</li>
+          <li>Agency billing filing and reconciliation</li>
+          <li>Unbilled hours tracking and escalation</li>
+          <li>Unauthorized adjustment identification and escalation tracks</li>
+          <li>Child-level or unit-level billing granularity tracking reports</li>
+          <li>AR aggressive follow-up and formal escalation protocols</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="module-inner section-inner">
+      <div class="module-sidebar reveal">
+        <div class="module-num">02</div>
+        <div class="module-tag">Service Module</div>
+        <div class="module-title">Expense & Vendor Controls</div>
+      </div>
+      <div class="module-body reveal">
+        <p>We build and maintain the controls that stop money leaking out of your business through vendor payments and operating expenses.</p>
+        <strong style="font-size:.85rem;color:var(--navy);font-weight:700;display:block;margin-bottom:.75rem">What we explicitly handle:</strong>
+        <ul class="module-list">
+          <li>Automated and manual invoice intake from all vendor portals</li>
+          <li>Rigorous duplicate payment verification filters</li>
+          <li>Due-date tracking and consolidated payment scheduling</li>
+          <li>Royalty reconciliation against actual bank receipts</li>
+          <li>Continuous spend trend analytics and variance reviews</li>
+          <li>Month-end close cycles and consolidated expense verification</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="module-inner section-inner">
+      <div class="module-sidebar reveal">
+        <div class="module-num">03</div>
+        <div class="module-tag">Service Module</div>
+        <div class="module-title">Process Outsourcing & Operations Desk</div>
+      </div>
+      <div class="module-body reveal">
+        <p>We take over the operational back-office tasks that consume your team's time but don't require your team's judgment. Accounting is 10–20% of what we actually do. The rest is operations execution — the work that keeps your business running on time.</p>
+        <strong style="font-size:.85rem;color:var(--navy);font-weight:700;display:block;margin-bottom:.75rem">What we explicitly handle:</strong>
+        <ul class="module-list">
+          <li>Direct portal access to corporate banking, vendor portals, and ERP systems</li>
+          <li>Complete billing execution pipelines handled end-to-end</li>
+          <li>Reimbursement validation and system processing gates</li>
+          <li>Overtime tracking metrics and daily/weekly labor reports</li>
+          <li>Weekly critical data requirements list published to the client</li>
+          <li>Defined escalation structures for any metric breaching normal parameters</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="module-inner section-inner">
+      <div class="module-sidebar reveal">
+        <div class="module-num">04</div>
+        <div class="module-tag">Service Module</div>
+        <div class="module-title">Financial Reporting & Business Intelligence</div>
+      </div>
+      <div class="module-body reveal">
+        <p>We deliver the financial and operational visibility your leadership needs to make decisions — not just a set of statements that confirm what happened last month.</p>
+        <strong style="font-size:.85rem;color:var(--navy);font-weight:700;display:block;margin-bottom:.75rem">What we explicitly deliver:</strong>
+        <ul class="module-list">
+          <li>Comprehensive monthly financial packets — P&L, Balance Sheet, Cash Flows</li>
+          <li>C-Suite Executive Summaries with structural variance explanations</li>
+          <li>Custom Power BI dashboards mapping EBITDA by location and manager performance</li>
+          <li>Comparative center-vs-center performance matrix sheets</li>
+          <li>Enrollment mix and occupancy trends tracking revenue impact</li>
+          <li>Acquisition entity corporate reporting paths for M&A pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white)">
+    <div class="section-inner">
+      <span class="section-tag reveal">Accountability</span>
+      <h2 class="section-title reveal">Three layers. One accountable partner.</h2>
+      <div class="tier-wrap">
+        <table class="tier-table reveal">
+          <thead>
+            <tr>
+              <th>Operational Tier</th>
+              <th>Personnel</th>
+              <th>Responsibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Execution Layer</td><td>Senior / Executive Analysts</td><td>Day-to-day data compilation, documentation intake, portal maintenance. First technical point of contact.</td></tr>
+            <tr><td>Review & Supervision</td><td>Manager-Level Overseers</td><td>Data validation on all outgoing packages. Cross-checks compliance margins and isolates exception flags.</td></tr>
+            <tr><td>Final Review & Closure</td><td>Partner-Level Leadership</td><td>Authorized sign-off on every engagement block. Direct client advisory and absolute operational accountability.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tier-quote reveal">
+        <p>"Every engagement has partner-level oversight — not as an occasional checkpoint, but as a structural commitment. You always know who is accountable for your work."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Technology</span>
+      <h2 class="section-title reveal">Native Technology Footprint</h2>
+      <p class="section-sub reveal">We integrate completely within your current environment. No expensive migrations, no re-platforming required.</p>
+      <div class="tech-grid">
+        <div class="tech-card reveal"><div class="tech-name">NetSuite</div><div class="tech-desc">Institutional accounting management, multi-entity consolidation, structural close cycles.</div></div>
+        <div class="tech-card reveal reveal-delay-1"><div class="tech-name">QuickBooks</div><div class="tech-desc">Baseline bookkeeping, automated AP/AR paths, standard bank reconciliations.</div></div>
+        <div class="tech-card reveal reveal-delay-2"><div class="tech-name">Power BI</div><div class="tech-desc">Automated operational dashboards and dynamic management views.</div></div>
+        <div class="tech-card reveal"><div class="tech-name">Bank & Vendor Portals</div><div class="tech-desc">Secure, read-only access pipelines for statement validation and bill retrieval.</div></div>
+        <div class="tech-card reveal reveal-delay-1"><div class="tech-name">Client-Proprietary Stacks</div><div class="tech-desc">Full custom adaptation to your unique pre-existing enterprise applications.</div></div>
+      </div>
+      <div style="margin-top:3rem;text-align:center">
+        <p class="reveal" style="color:var(--gray);font-size:.9rem;margin-bottom:1.25rem">Ready to see how this works for your business?</p>
+        <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">→ Schedule a 20-minute call</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav">
+        <a onclick="showPage('what-we-do')">What We Do</a>
+        <a onclick="showPage('who-we-serve')">Who We Serve</a>
+        <a onclick="showPage('results')">Results</a>
+        <a onclick="showPage('about')">About</a>
+      </nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: WHO WE SERVE ═══ -->
+<div id="page-who-we-serve" class="page">
+  <div class="wwd-hero">
+    <h1 class="reveal">Who We Serve</h1>
+    <p class="reveal">We don't serve everyone. We serve multi-location operators who need a finance function that actually works.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="serve-grid">
+        <div class="serve-card reveal" onclick="showPage('franchise')">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="sc-num">01</div>
+          <div class="sc-title">Multi-Location Franchise Operators</div>
+          <div class="sc-copy">Billing controls, agency reconciliation, revenue recovery, and location-level profitability reporting. We know this business.</div>
+          <a class="sc-link">→ Learn More</a>
+        </div>
+        <div class="serve-card reveal reveal-delay-1" onclick="showPage('property')">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="sc-num">02</div>
+          <div class="sc-title">Property Management Companies</div>
+          <div class="sc-copy">Corporate finance support, acquisition controllers, and property-level EBITDA visibility. NetSuite-native delivery.</div>
+          <a class="sc-link">→ Learn More</a>
+        </div>
+        <div class="serve-card reveal" onclick="showPage('smallbiz')">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="sc-num">03</div>
+          <div class="sc-title">Small Business &amp; Retail</div>
+          <div class="sc-copy">Single-store owners to small chains seeking institutional-grade clarity without enterprise overhead.</div>
+          <a class="sc-link">→ Learn More</a>
+        </div>
+        <div class="serve-card reveal reveal-delay-1" onclick="showPage('nonprofit')">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <div class="sc-num">04</div>
+          <div class="sc-title">Non-Profit &amp; Community Orgs</div>
+          <div class="sc-copy">Specialized fund tracking, strict grant compliance, and audit-ready reporting frameworks built for boards.</div>
+          <a class="sc-link">→ Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav">
+        <a onclick="showPage('what-we-do')">What We Do</a>
+        <a onclick="showPage('who-we-serve')">Who We Serve</a>
+        <a onclick="showPage('results')">Results</a>
+        <a onclick="showPage('about')">About</a>
+      </nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: RESULTS ═══ -->
+<div id="page-results" class="page">
+  <div class="wwd-hero">
+    <h1 class="reveal">Results</h1>
+    <p class="reveal">We measure ourselves by what changes for our clients — not by hours logged.</p>
+  </div>
+  <section class="section case-section">
+    <div class="section-inner">
+      <div class="case-header reveal">
+        <div class="case-label">Case Study</div>
+        <h2>The Learning Experience (TLE)</h2>
+        <p>Vertical Orientation: Multi-Center Daycare Franchise System — 45+ Domestically Maintained U.S. Locations Under Operational Mandate.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric reveal"><div class="num">7–8%</div><div class="lbl">Total Cash Revenue Recovered Weekly</div></div>
+        <div class="case-metric reveal reveal-delay-1"><div class="num" data-target="45" data-suffix="+">45+</div><div class="lbl">Operational Locations Supported</div></div>
+        <div class="case-metric reveal reveal-delay-2"><div class="num" data-target="500" data-suffix="+">500+</div><div class="lbl">Franchisee Outlets in Active CFO Pipeline</div></div>
+      </div>
+      <div class="challenge-grid">
+        <div class="challenge-block reveal">
+          <div class="block-title">The Pre-Engagement Challenge</div>
+          <ul class="block-list">
+            <li>TLE franchise owners were running their centers without a centralized finance function</li>
+            <li>Revenue was leaking through unbilled hours and agency payment gaps</li>
+            <li>Billing and vendor payments were handled manually, consuming staff time</li>
+            <li>Leadership had no consolidated view across locations — no dashboards, no variance analysis</li>
+            <li>Accounting was happening, but finance operations were not</li>
+          </ul>
+        </div>
+        <div class="intervention-block reveal reveal-delay-1">
+          <div class="block-title">The Meridian Intervention</div>
+          <ul class="block-list">
+            <li><strong>Revenue Recovery:</strong> End-to-end billing management for private pay and all agency programs. Weekly recovery reports identifying unbilled hours and agency mismatches.</li>
+            <li><strong>Expense Controls:</strong> Royalty reconciliation against bank receipts. Vendor invoice controls across all centers.</li>
+            <li><strong>Operations Desk:</strong> Billing execution, agency filing, reimbursement verification, and overtime tracking — all run as BAU.</li>
+            <li><strong>Reporting & Dashboards:</strong> Power BI dashboards with EBITDA by profit center, center-vs-center comparisons, and enrollment mix impact.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="impact-block reveal">
+        <p>Within weeks of engagement, owners were seeing recovered revenue that had previously gone undetected. Billing and agency filing moved off their plates entirely. The Power BI dashboards gave leadership a real-time view across all centers for the first time. The TLE CFO has since engaged Meridian to develop a central vendor model for rollout across 500+ franchisees.</p>
+      </div>
+      <div class="tbc-box reveal">
+        <div class="tbc-warn">⚠ Administrative Hold — Pending Sign-Off</div>
+        <p>The primary quote element remains pinned pending final sign-off from the TLE CFO office. This placeholder is reserved for immediate insertion upon approval.</p>
+        <div style="margin-top:1rem;border:1px dashed rgba(201,168,76,.3);border-radius:6px;padding:1.5rem">
+          <p style="font-style:italic;color:rgba(100,100,100,.6);font-size:.875rem">[TLE CFO Quote — AWAITING CLEARANCE]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav">
+        <a onclick="showPage('what-we-do')">What We Do</a>
+        <a onclick="showPage('who-we-serve')">Who We Serve</a>
+        <a onclick="showPage('results')">Results</a>
+        <a onclick="showPage('about')">About</a>
+      </nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: ABOUT & CONTACT ═══ -->
+<div id="page-about" class="page">
+  <div class="wwd-hero">
+    <h1 class="reveal">About Meridian Finance</h1>
+  </div>
+
+  <section class="section" style="background:var(--white)">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="reveal">Meridian Finance is a U.S.-based finance operations firm with delivery led by a team of Chartered Accountants based in Mumbai and Ahmedabad, India.</p>
+          <p class="reveal">We were built around a single observation: most U.S. businesses that outsource finance operations end up with the wrong people on the wrong work — paying senior rates for junior execution, with no U.S.-based partner to hold the relationship accountable.</p>
+          <p class="reveal">Our founding team comes from Ernst & Young and KPMG. We have been supporting multi-location U.S. businesses for several years, and today we work with 45+ franchise locations and a growing number of property management and growth-stage clients.</p>
+          <p class="reveal">We are not a large BPO. We are a focused practice that takes on a small number of clients and goes deep. Partner-level oversight on every engagement. U.S.-based relationship management. India-based execution. No middlemen.</p>
+        </div>
+        <div class="reveal" style="display:flex;flex-direction:column;gap:1.25rem">
+          <div style="background:var(--navy);border-radius:8px;padding:1.75rem;color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7">
+            <div style="color:var(--gold);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem">U.S. Presence</div>
+            <div style="color:var(--white);font-weight:600;margin-bottom:.25rem">Corporate Base</div>
+            Boston, MA <span class="tbc-badge">TBC ⚠</span>
+            <div style="margin-top:.75rem;color:var(--white);font-weight:600">Contact</div>
+            hello@meridianfinance.co<br>+1 [U.S. Number — TBC ⚠]
+          </div>
+          <div style="background:var(--bg);border:1px solid var(--gray-light);border-radius:8px;padding:1.75rem;font-size:.85rem;line-height:1.7">
+            <div style="color:var(--gold);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem">India Operations</div>
+            <div style="color:var(--navy);font-weight:600;margin-bottom:.25rem">Primary Delivery</div>
+            Hubtown Solaris, Mumbai, Maharashtra
+            <div style="margin-top:.75rem;color:var(--navy);font-weight:600">Secondary Operations</div>
+            Ahmedabad, Gujarat
+            <div style="margin-top:.75rem;color:var(--navy);font-weight:600">Team Depth</div>
+            100+ Total Assets | 25+ Fully Certified Chartered Accountants
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-title reveal" style="font-size:1.5rem;margin-bottom:2rem">Geographic Footprint</h3>
+      <div class="geo-wrap">
+        <table class="geo-table reveal">
+          <thead>
+            <tr><th>United States Presence</th><th>India Operational Center</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Corporate Base: Boston, MA <span class="tbc-badge">TBC ⚠</span></td><td>Primary: Hubtown Solaris, Mumbai, Maharashtra</td></tr>
+            <tr><td>Contact: +1 [U.S. Number <span class="tbc-badge">TBC ⚠</span>]</td><td>Secondary: Ahmedabad, Gujarat</td></tr>
+            <tr><td>hello@meridianfinance.co</td><td>100+ Staff | 25+ Certified Chartered Accountants</td></tr>
+            <tr><td>Onshore Relationship Care, Escalation, Strategy</td><td>Big-4 Aligned Technical Review, Systems Processing, Financial Execution</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Our Foundation</span>
+      <h2 class="section-title reveal">Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-num">01</div>
+          <div class="value-title">Accountability at Every Level</div>
+          <p>You always know who is responsible for your work. Not an amorphous team. A named person.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-num">02</div>
+          <div class="value-title">Client Outcomes Over Activity</div>
+          <p>We measure ourselves by what changes for our clients — not by hours logged or reports submitted.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-num">03</div>
+          <div class="value-title">Transparency as a Default</div>
+          <p>On pricing, on scope, on what we found. No hidden operational surprises.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-num">04</div>
+          <div class="value-title">Partnership, Not Vendor Thinking</div>
+          <p>We are deeply embedded in your business. When something goes wrong, we flag it before you ever have to ask.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="contact-form-section">
+    <div class="section-inner">
+      <span class="section-tag reveal" style="color:var(--gold)">Contact</span>
+      <h2 class="section-title reveal">Let's talk about your business.</h2>
+      <p class="section-sub reveal">No sales pitch. No deck on the first call. Just a 20-minute conversation to understand your setup and whether we're a fit.</p>
+      <div class="dev-warning reveal">
+        <p><strong>⚠ BACKEND PIPELINE INTEGRATION CHECKLIST:</strong> Developer must bind this form's post-action router to push to Calendly automated hooks or generate a background secure email routing schema directed to hello@meridianfinance.co. Administrative notifications must auto-ping project lead Mehul upon database submission.</p>
+      </div>
+      <form class="contact-form reveal" id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group" id="fg-first">
+            <label>First Name *</label>
+            <input type="text" id="f-first" placeholder="First name">
+            <span class="err-msg">First name is required.</span>
+          </div>
+          <div class="form-group" id="fg-last">
+            <label>Last Name *</label>
+            <input type="text" id="f-last" placeholder="Last name">
+            <span class="err-msg">Last name is required.</span>
+          </div>
+        </div>
+        <div class="form-group" id="fg-email">
+          <label>Corporate Email Address *</label>
+          <input type="email" id="f-email" placeholder="your@company.com">
+          <span class="err-msg">A valid email address is required.</span>
+        </div>
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" id="f-company" placeholder="Company name">
+        </div>
+        <div class="form-group">
+          <label>Number of Locations</label>
+          <select id="f-locations">
+            <option value="">Select number of locations</option>
+            <option>1</option><option>2–5</option><option>6–10</option>
+            <option>11–25</option><option>26–50</option><option>50+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What are you looking for help with?</label>
+          <textarea id="f-help" placeholder="Tell us about your current finance operations and what you're looking to improve..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Request a Call</button>
+      </form>
+      <div class="form-success reveal" id="form-success">
+        <h3>Thank you — we'll be in touch shortly.</h3>
+        <p>Your request has been received. A member of our team will reach out within one business day to schedule your 20-minute introductory call.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav">
+        <a onclick="showPage('what-we-do')">What We Do</a>
+        <a onclick="showPage('who-we-serve')">Who We Serve</a>
+        <a onclick="showPage('results')">Results</a>
+        <a onclick="showPage('about')">About</a>
+      </nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: FRANCHISE ═══ -->
+<div id="page-franchise" class="page">
+  <div class="ind-hero">
+    <div class="ind-hero-inner">
+      <span class="section-tag reveal" style="color:var(--gold)">Franchise Operators</span>
+      <h1 class="reveal">You didn't open a franchise to spend your time on the books.</h1>
+      <p class="reveal">Your goal is straightforward — grow revenue, run profitable locations, and build something worth owning. Finance operations should support that. For most franchise owners, it gets in the way instead.</p>
+      <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+    </div>
+  </div>
+  <section class="section" style="background:var(--white)">
+    <div class="section-inner" style="max-width:820px">
+      <h2 class="section-title reveal">The Structural Multi-Unit Challenge</h2>
+      <p class="reveal" style="font-size:.95rem;color:var(--gray);line-height:1.8;margin-bottom:1.1rem;border-left:3px solid var(--gold);padding-left:1.25rem">The franchise model is built for scale. The finance infrastructure rarely is.</p>
+      <p class="reveal" style="font-size:.9rem;color:var(--gray);line-height:1.8;margin-bottom:1.1rem">When you buy a franchise, you get the brand, the model, and the training. You don't get a finance function. You build one — usually with whoever's available, using whatever system works for now.</p>
+      <p class="reveal" style="font-size:.9rem;color:var(--gray);line-height:1.8">That's fine at one location. At three it starts to crack. At ten it breaks. Multiple revenue streams, franchisor obligations, third-party programs — all running on different cycles. Most franchise owners know their numbers aren't clean. They just don't have the time to know by how much.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Scale Variance Comparison</h2>
+      <div class="scale-compare">
+        <div class="scale-card reveal">
+          <h3>If You Are Running One Location</h3>
+          <p>You're tracking revenue yourself, or someone on your team is — after hours, usually manually. You know you're probably leaving money on the table somewhere but you can't find it. Every hour you spend on admin is an hour not spent on growth.</p>
+        </div>
+        <div class="scale-card gold-top reveal reveal-delay-1">
+          <h3>If You Are Running Multiple Locations</h3>
+          <p>The problems you had at one location multiplied. One location's numbers are late. Another has an unresolved discrepancy nobody has chased. You have a report for everything and a real picture of nothing. The bigger you get, the further behind the finance function falls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:var(--navy);padding:5rem 2rem">
+    <div class="section-inner">
+      <h2 class="section-title reveal" style="color:var(--white)">What Good Looks Like</h2>
+      <div class="good-looks reveal">
+        <ul>
+          <li>You know, this week, which locations are up and which need attention — not six weeks later.</li>
+          <li>Every billing cycle runs completely and on time — nothing missed, nothing slipping through.</li>
+          <li>Revenue lost to missed charges and reconciliation gaps is identified and recovered every week.</li>
+          <li>Third-party program payments reconciled against what actually landed in the bank.</li>
+          <li>Billing, filing, and vendor payments run without your team touching them.</li>
+          <li>Month-end close on time, every month — with a clear explanation of what changed and why.</li>
+        </ul>
+      </div>
+      <p class="reveal" style="color:rgba(255,255,255,.65);font-size:.875rem;font-style:italic;margin-top:1.75rem;border-left:3px solid var(--gold);padding-left:1.25rem">Accounting is about 10–20% of what we actually do. The rest is operations — the work that's been consuming your time and costing you revenue.</p>
+      <div class="pbi-placeholder reveal">
+        <div class="pbi-icon">📊</div>
+        <h4>⚠ Power BI Dashboard Placeholder</h4>
+        <p>Embed a high-resolution Power BI vector graphic displaying an interactive multi-location franchise portfolio summary.</p>
+        <div class="pbi-caption">"What a franchise operator sees every Monday morning."</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:var(--white)">
+    <div class="section-inner" style="max-width:820px">
+      <span class="section-tag reveal">Integration Philosophy</span>
+      <h2 class="section-title reveal">We start small. We earn the right to grow.</h2>
+      <div class="phase-block reveal">
+        <p>We don't ask you to hand us everything on day one. Most engagements start with one specific problem — a billing process that isn't running cleanly, a reconciliation nobody owns, reports that arrive too late to act on. We fix that first. You see it work. Then we expand.</p>
+      </div>
+      <div style="margin-top:2.5rem;text-align:center">
+        <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav">
+        <a onclick="showPage('who-we-serve')">← Back to Who We Serve</a>
+        <a onclick="showPage('results')">Results</a>
+        <a onclick="showPage('about')">Contact</a>
+      </nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: PROPERTY ═══ -->
+<div id="page-property" class="page">
+  <div class="ind-hero">
+    <div class="ind-hero-inner">
+      <span class="section-tag reveal" style="color:var(--gold)">Property Management</span>
+      <h1 class="reveal">Property Management Companies</h1>
+      <p class="reveal">Corporate finance support, acquisition controllers, and property-level EBITDA visibility. NetSuite-native delivery.</p>
+      <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner" style="max-width:820px">
+      <div class="draft-notice reveal">
+        <h3>⚠ Content Status: Structural Concept Draft</h3>
+        <p>This page is built using a structural design wrapper centered on corporate portfolio performance, property yield visibility, and NetSuite native processing. <strong>Awaiting Final Case Study Certification from Account Leads.</strong></p>
+      </div>
+      <div style="margin-top:2.5rem">
+        <h2 class="section-title reveal">Corporate Finance Support for Property Portfolios</h2>
+        <div class="pbi-placeholder reveal" style="background:linear-gradient(135deg,#0f1733,#1a2460)">
+          <div class="pbi-icon">🏢</div>
+          <h4>Property Performance Dashboard — Placeholder</h4>
+          <p>Property-level EBITDA visibility and NetSuite-native reporting interface.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav"><a onclick="showPage('who-we-serve')">← Back to Who We Serve</a></nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: SMALL BIZ ═══ -->
+<div id="page-smallbiz" class="page">
+  <div class="ind-hero">
+    <div class="ind-hero-inner">
+      <span class="section-tag reveal" style="color:var(--gold)">Small Business & Retail</span>
+      <h1 class="reveal">Small Business &amp; Retail</h1>
+      <p class="reveal">Single-store owners to small chains seeking institutional-grade clarity without enterprise overhead.</p>
+      <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner" style="max-width:820px">
+      <div class="draft-notice reveal">
+        <h3>⚠ Content Status: Structural Concept Draft</h3>
+        <p>This page maps small-chain retail operational pain points (reconciliation complexity, margin visibility, cash flow bottlenecks vs actual profitability tracking). Case study data area is reserved.</p>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav"><a onclick="showPage('who-we-serve')">← Back to Who We Serve</a></nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<!-- ═══ PAGE: NON-PROFIT ═══ -->
+<div id="page-nonprofit" class="page">
+  <div class="ind-hero">
+    <div class="ind-hero-inner">
+      <span class="section-tag reveal" style="color:var(--gold)">Non-Profit & Community Orgs</span>
+      <h1 class="reveal">Non-Profit &amp; Community Organizations</h1>
+      <p class="reveal">Specialized fund tracking, strict grant compliance, and audit-ready reporting frameworks built for boards.</p>
+      <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner" style="max-width:820px">
+      <div class="draft-notice reveal">
+        <h3>⚠ Content Status: Structural Concept Draft</h3>
+        <p>Structural components tailored for grant compliance tracking, board-level financial transparency, and fund isolation requirements. Marked as hidden from main organic indexing until clear text release.</p>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn-primary reveal" onclick="showPage('about');setTimeout(()=>scrollToForm(),200)">Schedule a Call</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Meridian <span>Finance</span></div>
+      <nav class="footer-nav"><a onclick="showPage('who-we-serve')">← Back to Who We Serve</a></nav>
+      <div class="footer-contact"><div>hello@meridianfinance.co</div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Meridian Finance.</span></div>
+  </footer>
+</div>
+
+<script>
+// PAGE ROUTING
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg=document.getElementById('page-'+id);
+  if(pg){pg.classList.add('active');window.scrollTo({top:0,behavior:'instant'});}
+  updateNavLinks(id);
+  closeMobile();
+  setTimeout(initReveal,50);
+  setTimeout(initCounters,100);
+}
+function updateNavLinks(id){
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active-link'));
+  const map={'what-we-do':0,'who-we-serve':1,'results':2,'about':3};
+  const links=document.querySelectorAll('.nav-links a');
+  if(map[id]!==undefined)links[map[id]].classList.add('active-link');
+}
+function scrollToForm(){
+  const el=document.getElementById('contact-form-section');
+  if(el)el.scrollIntoView({behavior:'smooth'});
+}
+function toggleMobile(){
+  const menu=document.getElementById('mobile-menu');
+  const ham=document.getElementById('hamburger');
+  const isOpen=menu.classList.toggle('open');
+  ham.classList.toggle('is-open',isOpen);
+  // prevent body scroll when menu open
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+function closeMobile(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('is-open');
+  document.body.style.overflow='';
+}
+
+// SCROLL REVEAL
+function initReveal(){
+  const els=document.querySelectorAll('.page.active .reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(el=>{
+    if(!el.classList.contains('visible'))obs.observe(el);
+    else el.classList.add('visible');
+  });
+}
+
+// COUNTER ANIMATIONS
+function initCounters(){
+  document.querySelectorAll('.page.active [data-target]').forEach(el=>{
+    const target=parseInt(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    let start=0;const dur=1800;const step=16;
+    const inc=target/(dur/step);
+    const timer=setInterval(()=>{
+      start=Math.min(start+inc,target);
+      el.textContent=Math.floor(start)+suffix;
+      if(start>=target)clearInterval(timer);
+    },step);
+  });
+}
+
+// FORM VALIDATION
+function handleSubmit(e){
+  e.preventDefault();
+  const first=document.getElementById('f-first').value.trim();
+  const last=document.getElementById('f-last').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  document.getElementById('fg-first').classList.toggle('has-error',!first);
+  document.getElementById('f-first').classList.toggle('error',!first);
+  document.getElementById('fg-last').classList.toggle('has-error',!last);
+  document.getElementById('f-last').classList.toggle('error',!last);
+  const emailValid=emailRe.test(email);
+  document.getElementById('fg-email').classList.toggle('has-error',!emailValid);
+  document.getElementById('f-email').classList.toggle('error',!emailValid);
+  if(!first||!last||!emailValid)return;
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+
+// NAV SHADOW ON SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('main-nav').style.boxShadow=
+    window.scrollY>30?'0 2px 20px rgba(0,0,0,.25)':'none';
+},{passive:true});
+
+// CLOSE MOBILE MENU ON OUTSIDE CLICK
+document.addEventListener('click',e=>{
+  const menu=document.getElementById('mobile-menu');
+  const ham=document.getElementById('hamburger');
+  if(menu.classList.contains('open')&&!menu.contains(e.target)&&!ham.contains(e.target)){
+    closeMobile();
+  }
+});
+
+// INIT
+document.addEventListener('DOMContentLoaded',()=>{
+  initReveal();
+  initCounters();
+});
+</script>
+</body>
+</html>
